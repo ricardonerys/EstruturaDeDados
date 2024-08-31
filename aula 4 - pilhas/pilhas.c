@@ -11,40 +11,9 @@
 //uma pra verificar se está vazia;
 //uma pra verificar se está cheia;
 
-#include<stdio.h>
 
-int *pilha;
-int referenciatopo=0;
-int tamanhodapilha=5;
-
-void Stack();
-void push();
-void pop();
-void isEmpty();
-void size();
-
-
-int main(){
-    printf("programa iniciado!\n");
-    Stack();
-
-    push(pilha,&referenciatopo,10);
-    push(pilha,&referenciatopo,20);
-    push(pilha,&referenciatopo,30);
-    pop(pilha,&referenciatopo);
-    isEmpty(&referenciatopo,tamanhodapilha);
-    size(&referenciatopo);
-    
-    for(int i=0;i <referenciatopo;i++){
-        printf("pilha[%d] -> %d\n",i,pilha[i]);
-    }
-    
-    return 0;
-}
-
-
-void Stack(){
-pilha = (int*)malloc(tamanhodapilha*sizeof(int));
+void Stack(int *pilhai,int tpl){       
+pilhai = (int*)malloc(tpl*sizeof(int));
 printf("pilha criada!\n");
 }
 
