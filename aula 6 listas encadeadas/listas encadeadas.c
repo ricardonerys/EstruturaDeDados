@@ -24,8 +24,9 @@ int main(){
     le lista1;
     lista1.head = NULL;
     lista1.tamanho = 0;
+    inseririnicio(&lista1,10);
 
-
+    
     return 0;
 }
 
