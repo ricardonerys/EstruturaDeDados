@@ -32,7 +32,11 @@ int main(){
     inserirfim(&lista1,4);
     
     imprimirLista(&lista1);
-
+    inserirmeio(&lista1,100,20);
+    imprimirLista(&lista1);
+    removerno(&lista1,40);
+    removerno(&lista1,30);
+    imprimirLista(&lista1);
     return 0;
 }
 
@@ -62,6 +66,36 @@ void inserirfim(le *l,int val){
 
 }
 
+void inserirmeio(le *l,int val,int ref){
+    printf("inserindo no meio:\n");
+    no *novono=(no*)malloc(sizeof(no));
+
+    no *nop=l->head;
+    while(nop->valor!=ref && nop->proximoNo!=NULL){
+        nop=nop->proximoNo;
+    }
+    novono->proximoNo= nop->proximoNo;
+    nop->proximoNo=novono;
+    novono->valor = val;
+
+}
+
+void removerno(le *l,int ref){
+    printf("removendo no:\n");
+    no *nop=l->head;
+    no *noant=l->head;
+    while(nop->valor!=ref){
+        noant = nop;
+        nop = nop->proximoNo ;
+    }
+    if(nop->valor == l->head->valor){
+        l->head = nop->proximoNo;
+    }else{
+        noant->proximoNo = nop->proximoNo;
+    }
+
+}
+
 int imprimirLista(le *l){
     printf("imprimindo valor\n" );
     if(l->head==NULL){
@@ -79,4 +113,6 @@ int imprimirLista(le *l){
         return 1;
     }
 }
+
+
     
