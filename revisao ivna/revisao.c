@@ -12,11 +12,17 @@ typedef struct lista{
 }lista;
 
 no* criarno(int val);
+void imprimirlista(lista *l);
+void inserifinal(lista *l,int val);
 
 int main(){
     lista lista1;
+    lista1.head = NULL;
+    lista1.tamanho = 0;
+    
     lista1.head= criarno(10);
     inserirfinal(&lista1,20);
+    imprimirlista(&lista1);
     return 0;
 }
 
@@ -29,18 +35,24 @@ no* criarno(int val){
 
 void imprimirlista(lista *l){
     
-    no *nop = l->head;
-    printf("%d\n",l->head->dado);
+   
 
-    while(nop->proximono!=l->head){
+    if(l->head != NULL){
+        no *nop = l->head;
         printf("%d\n",nop->dado);
+        while(nop->proximono!=l->head && nop->proximono!=NULL){
+        }
+    }else{
+        printf("lista vazia!\n");
     }
 }
 
-void inserifinal(lista *l,int val){
+void inserirfinal(lista *l,int val){
     no *novono = criarno(val);
     if(l->head!=NULL){
+
         no *nop = l->head;
+        
         while(nop->proximono != l->head){
             nop = nop->proximono;
         }
