@@ -3,14 +3,17 @@
 #include<stdlib.h>
 
 typedef struct No{
-    int valor;
+
+    char titulodamusica[15];
+    char artista[15];
+    int duracao;
+
     struct No *proximoNo;
     struct No *noAnterior;
 }no;
 
 typedef struct listaencadeada{
     no *head;
-    int tamanho;
 }le;
 
 void inseririnicio(le *l,int val);
@@ -23,7 +26,17 @@ int imprimirLista(le *l);
 int main(){
     le lista1;
     lista1.head = NULL;
-    lista1.tamanho = 0;
+
+    printf("menu de usuario:\n\n");
+    printf("1-Adicionar uma nova música");
+    printf("2-Remover uma música ");
+    printf("3-Visualizar todas as músicas \n");
+    printf("4-Limpar a lista de músicas \n");
+    printf("5-Pesquisar música por título\n");
+    printf("6-Ordenar músicas por título \n");
+    printf("7-Contar o total de músicas na lista \n");
+    printf("8-sair\n");
+
 
     inseririnicio(&lista1,10);
     inseririnicio(&lista1,20);
